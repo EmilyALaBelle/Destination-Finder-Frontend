@@ -1,38 +1,41 @@
 .destination-card {
-border: 2px solid #6A8D73;
-background-color: white;
-margin-bottom: 10px;
-margin-left: 20px;
-margin-right: 20px;
-padding: 5px;
+  border: 2px solid #6A8D73;
+  background-color: white;
+  padding: 5px;
+  width: 726px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
 
-}
 .image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
+  width: 719px;
 }
-.background{
+
+.background {
   background-color: white;
 }
 
-.head{
+.head {
   margin-top: 5px;
   background-color: white;
   border: solid 2px #6A8D73;
 }
-.climate-box{
+
+.climate-box {
   margin: 3px;
   background-color: whitesmoke;
 }
-.terrain-box{
+
+.terrain-box {
   margin: 3px;
   background-color: whitesmoke;
 }
-.budget-box{
+
+.budget-box {
   margin: 3px;
   background-color: whitesmoke;
 }
-.header{
+
+.header {
   text-align: center;
 }

@@ -1,24 +1,38 @@
 import { useState } from "react"
-import { HeartTwoTone } from "@ant-design/icons"
+import { useEffect } from "react"
+import '../assets/Favorites.css'
 
-export default function Favorites(){
+export default function Favorites() {
+  const [likedDestinations, setLikedDestinations] = useState([])
 
-const [destinations, setDestinations] = useState()
-
-  const handleLikeClick = () => {
-    fetch(`http://localhost:5002/like/${destinations._Id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(destinations)
-    })
+  useEffect(() => {
+    fetch(`http://localhost:5002/like`)
       .then(response => response.json())
-      .then(data => setDestinations(data))
-      .catch(alert)
-  }
+      .then(data => setLikedDestinations(data))
+      .catch(err => console.error(err))
+  }, [])
 
-  const Heart = () => {
-    return destinations.like ? <><HeartTwoTone twoToneColor="#eb2f96" onClick={handleLikeClick} />{postMessage.destination.toLocaleString()} Likes</> : < HeartTwoTone twoToneColor="#bbb" onClick={handleLikeClick} />
+  console.log(likedDestinations)
+  const AllLikedDestinations = () => {
+    return (
+      <div className="background">
+        {likedDestinations.map((item) => {
+          return (
+            <div className="destination-card" state={item} key={item._Id}>
+              <h1>{item.City}, {item.State}</h1>
+              <img className="image" src={item.Image} alt='' />
+              <h4 className="climate-box">The Climate is: {item.Climate}</h4>
+              <h4 className="terrain-box">The Terrain is: {item.Terrain}</h4>
+              <h4 className="budget-box">{item.Budget}</h4>
+            </div>
+          )
+        })} </div>
+    )
   }
+  return (
+    <div className="head">
+      <h1 className="header">Favorites</h1>
+      < AllLikedDestinations/>
+    </div>
+  )
 }

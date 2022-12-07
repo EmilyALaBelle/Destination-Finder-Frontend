@@ -1,0 +1,36 @@
+.destination-card {
+  border: 2px solid #6A8D73;
+  background-color: white;
+  padding: 5px;
+  width: 726px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.image {
+  width: 719px;
+}
+  .background{
+    background-color: white;
+  }
+  
+  .head{
+    margin-top: 5px;
+    background-color: white;
+    border: solid 2px #6A8D73;
+  }
+  .climate-box{
+    margin: 3px;
+    background-color: whitesmoke;
+  }
+  .terrain-box{
+    margin: 3px;
+    background-color: whitesmoke;
+  }
+  .budget-box{
+    margin: 3px;
+    background-color: whitesmoke;
+  }
+  .header{
+    text-align: center;
+  }
