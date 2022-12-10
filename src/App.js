@@ -26,30 +26,30 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-      {user
-      ? <>
-              <Route path='/' element={<Home />} />
+        {user
+        ? <>
+    <Route path='/' element={<Home />} />
         <Route path='/quiz' element={<QuizForm />} />
         <Route path='/destinationList' element={<DestinationList />} />
         <Route path='/results' element={<Results />} />
         <Route path='/profile' element={<Profile user={user}/>} />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='/login' element={<Login setUser={setUser} setToken={setToken} user={user} token={token} />} />
-          <Route path='/signup' element={<Signup setUser={setUser} setToken={setToken} user={user} token={token}/>} />
-          <Route path='/account' element={<AccountEdit user={user} token={token} setUser={setUser} />} />
-      </>
-      :<>
-        <Route path='/' element={<Home />} />
+        <Route path='/favorites' element={<Favorites />} />
+        <Route path='/login' element={<Login setUser={setUser} setToken={setToken} user={user} token={token} />} />
+        <Route path='/signup' element={<Signup setUser={setUser} setToken={setToken} user={user} token={token}/>} />
+        <Route path='/account' element={<AccountEdit user={user} token={token} setUser={setUser} />} />
+        </>
+        : <>
+       <Route path='/' element={<Home />} />
         <Route path='/quiz' element={<QuizForm />} />
         <Route path='/destinationList' element={<DestinationList />} />
         <Route path='/results' element={<Results />} />
         <Route path='/profile' element={<Profile user={user}/>} />
-          <Route path='/favorites' element={<Favorites />} />
-          <Route path='/login' element={<Login setUser={setUser} setToken={setToken} user={user} token={token} />} />
-          <Route path='/signup' element={<Signup setUser={setUser} setToken={setToken} user={user} token={token}/>} />
-          {/* <Route path='/account' element={<AccountEdit user={user} token={token} setUser={setUser} />} /> */}
-      </>
-      }
+        <Route path='/login' element={<Login setUser={setUser} setToken={setToken} user={user} token={token} />} />
+        <Route path='/signup' element={<Signup setUser={setUser} setToken={setToken} user={user} token={token}/>} />
+        </>
+
+        }
+     
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import '../assets/results.css'
+import '../assets/Results.css'
 
 export default function Results() {
   const { state } = useLocation();
@@ -9,26 +9,23 @@ export default function Results() {
       {state.map(destination => {
         return (
           <>
-
-
             <h1 className="result-box">
-            
-            <div className="city-state-box"> 
+
+              <div className="city-state-box">
                 {destination.City},
                 {destination.State}
               </div>
 
               <img className="image" src={destination.Image} alt="" />
 
-              
               <div className="climate-box">
                 Climate: {destination.Climate}
               </div>
-              
+
               <div className="terrain-box">
                 Terrain: {destination.Terrain}
               </div>
-              
+
               <div className="budget-box">
                 Budget: {destination.Budget}
               </div>
@@ -36,8 +33,6 @@ export default function Results() {
           </>
         )
       })}
-
-      {/* <ResultDestination /> */}
     </div>
   )
 }

@@ -1,33 +1,27 @@
 import '../assets/Navbar.css'
 import { Link } from "react-router-dom"
-import { Button, Layout } from 'antd'
-
+import { Layout } from 'antd'
 
 export default function Navbar() {
   return (
-    <Layout className='navbar'>
-   
-  <div >
-      <Link to={'./'}>
-        <Button type="button" shape='round'>Home</Button>
+    <Layout >
+      <div className='navbar'>
+        <Link to={'./'} style={{ textDecoration: "none", color: "white", fontSize: "20px" }}>
+          Home
         </Link>
-      
 
-      <Link to={'./quiz'}>
-        <Button type='button' shape='round'>Quiz</Button>
-      </Link>
-  
+        <Link to={'./quiz'} style={{ textDecoration: "none", color: "white", fontSize: "20px" }}>
+          Quiz
+        </Link>
 
-      <Link to={'./destinationList'}>
-        <Button type='button' shape='round'>Destinations</Button>
-      </Link>
- 
+        <Link to={'./destinationList'} style={{ textDecoration: "none", color: "white", fontSize: "px" }}>
+          Destinations
+        </Link>
 
-      <Link to={"./profile"}>
-        <Button>Profile</Button>
-      </Link>
+        <Link to={"./profile"} style={{ textDecoration: "none", color: "white", fontSize: "20px"}}>
+          Profile
+        </Link>
       </div>
-
-      </Layout>
+    </Layout>
   )
 }

@@ -1,38 +1,29 @@
 import { useState } from "react"
 import { useEffect } from "react"
 import '../assets/Favorites.css'
+import Favorites from "./FavoritesCard"
 
-export default function Favorites() {
-  const [likedDestinations, setLikedDestinations] = useState([])
+export default function Favorite() {
+  const [destination, setDestination] = useState([])
 
   useEffect(() => {
-    fetch(`http://localhost:5002/like`)
+    // fetch(`http://localhost:5002/like`)
+    fetch(`https://practice-final-2-el.web.app/like`)
       .then(response => response.json())
-      .then(data => setLikedDestinations(data))
+      .then(data => setDestination(data))
       .catch(err => console.error(err))
-  }, [])
+  }, [setDestination])
 
-  console.log(likedDestinations)
-  const AllLikedDestinations = () => {
-    return (
-      <div className="background">
-        {likedDestinations.map((item) => {
-          return (
-            <div className="destination-card" state={item} key={item._Id}>
-              <h1>{item.City}, {item.State}</h1>
-              <img className="image" src={item.Image} alt='' />
-              <h4 className="climate-box">The Climate is: {item.Climate}</h4>
-              <h4 className="terrain-box">The Terrain is: {item.Terrain}</h4>
-              <h4 className="budget-box">{item.Budget}</h4>
-            </div>
-          )
-        })} </div>
-    )
-  }
+  console.log(destination)
   return (
-    <div className="head">
-      <h1 className="header">Favorites</h1>
-      < AllLikedDestinations/>
-    </div>
+    <section>
+
+      {!destination
+        ? <p>Loading...</p>
+        : destination.map(destination => (
+          <Favorites setDestination={setDestination} destination={destination} key={destination._id}></Favorites>
+        ))}
+    </section>
   )
 }
+

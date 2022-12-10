@@ -10,27 +10,32 @@
 .image {
   width: 719px;
 }
-  .background{
-    background-color: white;
-  }
-  
-  .head{
-    margin-top: 5px;
-    background-color: white;
-    border: solid 2px #6A8D73;
-  }
-  .climate-box{
-    margin: 3px;
-    background-color: whitesmoke;
-  }
-  .terrain-box{
-    margin: 3px;
-    background-color: whitesmoke;
-  }
-  .budget-box{
-    margin: 3px;
-    background-color: whitesmoke;
-  }
-  .header{
-    text-align: center;
-  }
+
+.background {
+  background-color: white;
+}
+
+.head {
+  margin-top: 5px;
+  background-color: white;
+  border: solid 2px #6A8D73;
+}
+
+.climate-box {
+  margin: 3px;
+  background-color: whitesmoke;
+}
+
+.terrain-box {
+  margin: 3px;
+  background-color: whitesmoke;
+}
+
+.budget-box {
+  margin: 3px;
+  background-color: whitesmoke;
+}
+
+.header {
+  text-align: center;
+}

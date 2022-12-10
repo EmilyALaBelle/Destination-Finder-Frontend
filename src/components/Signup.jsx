@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom"
 import { Form, Input, Layout, Button } from "antd"
+import '../assets/Signup.css'
 
 export default function Login({ setUser, setToken, user, token }) {
   const navigate = useNavigate()
   const handleFormSubmit = (values) => {
     console.log('Success:', values)
     // fetch('http://127.0.0.1:5002/signup', {
-      fetch('https://practice-final-2-el.web.app/signup', {
+    fetch('https://practice-final-2-el.web.app/signup', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(values)
@@ -15,78 +16,34 @@ export default function Login({ setUser, setToken, user, token }) {
       .then(data => {
         setUser(data.user)
         setToken(data.token)
-   navigate('/account')
+        navigate('/account')
       })
       .catch(err => console.error(err))
   }
   console.log(user, token)
   return (
-    <Layout.Content>
-      <h1>Signup</h1>
-      <Form onFinish={handleFormSubmit} >
-        <Form.Item label="Email" name="email" rules={[{
+    <Layout.Content className="layout">
+      <h1 className="signup-header">Signup</h1>
+      <Form className="form-box" onFinish={handleFormSubmit} >
+        <Form.Item className="email-form" label="Email" name="email" rules={[{
           required: true,
-          message: 'Please enter a valid email address'
+          message: 'Please enter a valid emasil address'
         }]}>
-          <Input />
+          <Input className="password-input" />
         </Form.Item>
-        <Form.Item label="Password" name="password" rules={[{
+        <Form.Item className="password-form" label="Password" name="password" rules={[{
           required: true,
           message: 'Please enter password'
         }]}>
-          <Input.Password />
+          <Input.Password className="password-input" />
         </Form.Item>
         <Form.Item>
-          <Button type='primary' htmlType='submit'>Signup</Button>
+          <Button className="signup-button" type='primary' htmlType='submit'>Signup</Button>
         </Form.Item>
       </Form>
+      <br /><br />
+      Already have an account?
+      <button onClick={() => navigate('/login')}>Login</button>
     </Layout.Content>
   )
 }
-
-
-
-
-// import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
-
-// export default function Signup() {
-//   const [form, setForm] = useState({})
-//   const navigate = useNavigate()
-
-//   const handleFormSubmit = e => {
-//     e.preventDefault()
-
-//     fetch(`https://practice-final-2-el.web.app/signup`, {
-//    // fetch('http://127.0.0.1:5002/signup', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(form),
-//     })
-//     .then(res => res.json())
-//       .then(data => {
-//         localStorage.setItem('userToken', data.accessToken)
-//         navigate('/account')
-//       })
-//       .catch(err => console.error(err))
-//   }
-
-//   return (
-//     <>
-//       <form action='submit' onSubmit={handleFormSubmit} method='post'>
-//         <h2>Sign up</h2>
-//         <label htmlFor=''>Email: </label>
-//         <input type='email' onChange={e => setForm({ ...form, email: e.target.value })} />
-//         <br />
-//         <label htmlFor=''>Password: </label>
-//         <input type='password' onChange={e => setForm({ ...form, password: e.target.value })} />
-//         <button type='submit'>Sign up</button>
-//       </form>
-//       <br /><br />
-//       already have an account?
-//       <button onClick={() => navigate('/login')}>Login</button>
-//     </>
-//   )
-// }

@@ -11,16 +11,16 @@ export default function QuizForm() {
   const handleQuizSubmit = () => {
     console.log("form", form)
     fetch(`https://practice-final-2-el.web.app/destination`, {
-    //  fetch(`http://127.0.0.1:5002/destination`, {
+      //  fetch(`http://127.0.0.1:5002/destination`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(form)
     })
-    .then(res => res.json())
-    .then((results) => navigate('/results', {state:results}) )
-    .catch(err => console.error(err))
+      .then(res => res.json())
+      .then((results) => navigate('/results', { state: results }))
+      .catch(err => console.error(err))
   }
 
   const handleForm = (e) => {
@@ -30,15 +30,14 @@ export default function QuizForm() {
   }
 
   return (
-
     <Form action="submit">
       <Layout.Content style={{ marginTop: 24 }}>
         <div className="quiz-form-main-container">
           {questions.map(question => (
             <div key={question.value} className="form-item-container">
-               <div className="question-label">
+              <div className="question-label">
                 {question.label}
-                </div>
+              </div>
               <Radio.Group name={question.value} options={question.options} onChange={handleForm} form={form}>
                 {question.options.map(option => {
                   return (
@@ -50,10 +49,11 @@ export default function QuizForm() {
           ))}
         </div>
       </Layout.Content>
-      <Button className="submit-button" type="primary" htmlType="submit" onClick={handleQuizSubmit} >
-        Submit Quiz
-      </Button>
+      <div >
+        <Button className="button-6" type="primary" htmlType="submit" onClick={handleQuizSubmit}>
+          Submit Quiz
+        </Button>
+      </div>
     </Form>
-
   )
 }

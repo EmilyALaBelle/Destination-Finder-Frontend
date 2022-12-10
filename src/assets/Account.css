@@ -1,0 +1,36 @@
+.layout{
+  text-align: center;
+}
+.account-header{
+
+}
+.aform-box{
+  border: solid 2px #6A8D73;
+  background-color: whitesmoke;
+  margin-left: 60px;
+  margin-right: 60px;
+  height: 230px;
+}
+.firstName-form{
+  margin-top: 5px;
+
+}
+.firstName-input{
+
+}
+.lastName-form{
+
+  margin-top: 1px;
+}
+.lastName-input{
+
+}
+.aemail-form{
+margin-top: 7px;
+}
+.email-input{
+
+}
+.save-button{
+
+}
