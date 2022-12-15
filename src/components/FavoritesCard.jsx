@@ -29,7 +29,7 @@ export default function Favorites({ destination, setDestination }) {
         <h1 >{destination.City}, {destination.State}</h1>
         <img className="image" alt="" src={destination.Image} />
         <h4 className="climate-box">The Climate is: {destination.Climate}</h4>
-        <h4 className="terrain-box">The Terrain is: {destination.Terrain}</h4>
+        <h4 className="terrain-box">The Terrain is: {destination.Terrain.toString().split(",   ")}</h4>
         <h4 className="budget-box">{destination.Budget}</h4>
       </div>
     </Card>

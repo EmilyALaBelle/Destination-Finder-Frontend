@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import '../assets/Results.css'
+import { Card } from "antd";
 
 export default function Results() {
   const { state } = useLocation();
@@ -8,8 +9,8 @@ export default function Results() {
       <h1 className="header">Results</h1>
       {state.map(destination => {
         return (
-          <>
-            <h1 className="result-box">
+          <Card className="destination-card">
+
 
               <div className="city-state-box">
                 {destination.City},
@@ -23,14 +24,13 @@ export default function Results() {
               </div>
 
               <div className="terrain-box">
-                Terrain: {destination.Terrain}
+                Terrain: {destination.Terrain.toString().split(",   ")}
               </div>
 
               <div className="budget-box">
                 Budget: {destination.Budget}
               </div>
-            </h1>
-          </>
+          </Card>
         )
       })}
     </div>

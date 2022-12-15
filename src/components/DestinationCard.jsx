@@ -15,7 +15,8 @@ export default function Destination({ destination, setDestination }) {
       .then(data => setDestination(data))
       .catch(alert)
   }
-  console.log(destination)
+
+
   const Heart = () => {
     return destination.liked === true ? <><HeartTwoTone twoToneColor="#eb2f96" onClick={handleLikeClick} />{destination.liked}</> : < HeartTwoTone twoToneColor="#bbb" onClick={handleLikeClick} />
   }
@@ -30,7 +31,7 @@ export default function Destination({ destination, setDestination }) {
         <h1 >{destination.City}, {destination.State}</h1>
         <img className="image" alt="" src={destination.Image} />
         <h4 className="climate-box">The Climate is: {destination.Climate}</h4>
-        <h4 className="terrain-box">The Terrain is: {destination.Terrain}</h4>
+        <h4 className="terrain-box">The Terrain is: {destination.Terrain.toString().split(",   ")}</h4>
         <h4 className="budget-box">{destination.Budget}</h4>
       </div>
     </Card>
